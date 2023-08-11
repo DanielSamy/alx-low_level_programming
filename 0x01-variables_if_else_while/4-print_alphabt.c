@@ -10,14 +10,14 @@
 
 int main(void)
 {
-	char ch[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = 0; i < 26; i++)
+	for (i = 97; i < 123; i++)
 	{
-		if (i == 'e' || i == 'q')
-			i++;
-		putchar(ch[i]);
+		if (i != 101 && i != 113)
+		{
+			putchar(i);
+		}
 	}
 	putchar('\n');
 
