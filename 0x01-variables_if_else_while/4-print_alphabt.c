@@ -16,7 +16,7 @@ int main(void)
 	for (i = 0; i < 26; i++)
 	{
 		if (i == 'e' || i == 'q')
-			continue;
+			i++;
 		putchar(ch[i]);
 	}
 	putchar('\n');
