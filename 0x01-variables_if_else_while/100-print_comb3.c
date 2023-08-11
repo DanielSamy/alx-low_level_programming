@@ -8,23 +8,26 @@
  * Return: Always 0 (success)
  */
 
-int main(void) 
+int main(void)
 {
-    int i, j;
+	int i, x;
 
-    for (i = 0; i <= 8; i++) {
-        for (j = i + 1; j <= 9; j++) {
-            putchar('0' + i);
-            putchar('0' + j);
-            if (i != 8 || j != 9) {
-                putchar(',');
-                putchar(' ');
-            }
-            if (j == 9) {
-                putchar('\n');
-            }
-        }
-    }
-
-    return 0;
+	for (i = 48; i <= 56; i++)
+	{
+		for (x = 49; x <= 57; x++)
+		{
+			if (x > i)
+				{
+				putchar(i);
+				putchar(x);
+				if (i != 56 || x != 57)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
