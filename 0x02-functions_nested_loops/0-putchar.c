@@ -3,9 +3,9 @@
 /**
 * main - Entry point
 *
-*Description: print _putchar
+* Description: print _putchar
 *
-*Return: Always 0 (success)
+* Return: Always 0 (success)
 */
 
 int main(void)
@@ -13,9 +13,9 @@ int main(void)
 	char arr[] = "_putchar";
 	int i;
 
-	for (i = 0; i < arr; i++)
+	for (i = 0; i < 8; i++)
 		_putchar(arr[i]);
-	_putchar("\n");
+	_putchar('\n');
 
 	return (0);
 }
