@@ -1,4 +1,5 @@
 #include "main.h"
+#include "_putchar"
 
 /**
  * _puts - print a string follwed by new line
