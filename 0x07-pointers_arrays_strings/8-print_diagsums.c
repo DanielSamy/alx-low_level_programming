@@ -1,6 +1,11 @@
 #include "main.h"
 
-/***/
+/**
+ * print_diagsums - Entry point
+ * @a: input
+ * @size: input
+ * Return: always 0 (success)
+*/
 
 void print_diagsums(int *a, int size)
 {
