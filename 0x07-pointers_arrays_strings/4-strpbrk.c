@@ -1,6 +1,11 @@
 #include "main.h"
 
-/***/
+/**
+ * _strpbrk - Entry point
+ * @s: input
+ * @accept: input
+ * Return: always 0 (success)
+*/
 
 char *_strpbrk(char *s, char *accept)
 {
@@ -19,9 +24,9 @@ char *_strpbrk(char *s, char *accept)
 				return (p);
 
 			}
-			j++
+			j++;
 		}
-		i++
+		i++;
 	}
 	return (0);
 }
