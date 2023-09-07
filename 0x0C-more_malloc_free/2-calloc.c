@@ -24,18 +24,18 @@ char *_memset(char *s, char b, unsigned int n)
 */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+	char *str;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	ptr = malloc(sizeof(int) * nmemb);
+	str = malloc(size * nmemb);
 
-	if (ptr == 0)
+	if (str == NULL)
 		return (NULL);
 
-	_memset(ptr, 0, sizeof(int) * nmemb);
+	_memset(str, 0, nmemb * size);
 
-	return (ptr);
+	return (str);
 }
 
