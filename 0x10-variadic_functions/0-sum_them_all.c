@@ -3,7 +3,7 @@
 /**
  * sum_them_all - Returns the sum of all its paramters
  * @n: The number of paramters
- * @...: A variable number 
+ * @...: A variable number
  * Return: sum of integer
 */
 int sum_them_all(const unsigned int n, ...)
@@ -19,4 +19,3 @@ int sum_them_all(const unsigned int n, ...)
 	va_end(ap);
 	return (sum);
 }
-
