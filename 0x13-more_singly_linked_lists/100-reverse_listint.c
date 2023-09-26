@@ -11,7 +11,7 @@ listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *dod = NULL, *next = NULL;
 
-	if (!head || *head)
+	if (!head || !*head)
 		return (NULL);
 	dod = *head;
 	*head = NULL;
