@@ -16,7 +16,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int index;
 	char *ptr;
 
-	
 	va_start(app, n);
 
 	for (index = 0; index < n; index++)
