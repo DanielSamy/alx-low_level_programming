@@ -7,20 +7,19 @@
  * @argv: array of arguments
  * Return: 0 (Success), 1 (Error)
  */
-
 int main(int argc, char *argv[])
 {
-	int sum;
+	int total;
 
-	if (argc == 3)
-	{
-		sum = atoi(aegv[1] * atoi(argv[2]);
-		printf("%d\n", sum);
-	}
-	else
+	if (argc < 3)
 	{
 		printf("Error\n");
-		return (1);
+		return (EXIT_FAILURE);
 	}
 
+	total = atoi(argv[1]) * atoi(argv[2]);
+
+	printf("%d\n", total);
+
+	return (EXIT_SUCCESS);
 }
