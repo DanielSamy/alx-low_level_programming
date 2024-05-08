@@ -1,45 +1,53 @@
 #include "search_algos.h"
-
+#include <math.h>
 /**
- * jump_list - Searches for an algorithm in a sorted singly
- *             linked list of integers using jump search.
- * @list: A pointer to the  head of the linked list to search.
- * @size: The number of nodes in the list.
- * @value: The value to search for.
- *
- * Return: If the value is not present or the head of the list is NULL, NULL.
- *         Otherwise, a pointer to the first node where the value is located.
- *
- * Description: Prints a value every time it is compared in the list.
- *              Uses the square root of the list size as the jump step.
+ * jump_list - a function that searches for a value
+ * in a sorted singly linked list of integers using the Jump search algorithm
+ * @list: the head
+ * @size: size of the linked list
+ * @value: the value to search for
+ * Return: the address of the node or NULL
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t step, step_size;
-	listint_t *node, *jump;
+	size_t jump, index, old_index;
+	listint_t *tmp;
 
-	if (list == NULL || size == 0)
+	jump = (size_t)sqrt(size);
+	if (!list)
 		return (NULL);
-
-	step = 0;
-	step_size = sqrt(size);
-	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
+	tmp = list;
+	for (index = jump; index < size - 1 + jump; index += jump)
 	{
-		node = jump;
-		for (step += step_size; jump->index < step; jump = jump->next)
+		old_index = index;
+		if (index >= size)
 		{
-			if (jump->index + 1 == size)
-				break;
+			old_index = index;
+			index = size - 1;
 		}
-		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
+		while (tmp && tmp->index != index)
+		{
+			tmp = tmp->next;
+		}
+		printf("Value checked at index [%ld] = [%d]\n", tmp->index, tmp->n);
+		if (value <= tmp->n || index == size - 1)
+		{
+			printf("Value found between indexes [%ld] and [%ld]\n",
+					old_index - jump, index);
+			tmp = list;
+			while (tmp && tmp->index != old_index - jump)
+			{
+				tmp = tmp->next;
+			}
+			while (tmp && tmp->index <= index)
+			{
+				printf("Value checked at index [%ld] = [%d]\n", tmp->index, tmp->n);
+				if (value == tmp->n)
+					return (tmp);
+				tmp = tmp->next;
+			}
+
+		}
 	}
-
-	printf("Value found between indexes [%ld] and [%ld]\n",
-			node->index, jump->index);
-
-	for (; node->index < jump->index && node->n < value; node = node->next)
-		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
-	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
-
-	return (node->n == value ? node : NULL);
+	return (NULL);
 }
